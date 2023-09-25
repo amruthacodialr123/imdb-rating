@@ -1,0 +1,92 @@
+
+  img{
+    width:96px;
+    height:50px;
+    align-items: center;
+  }
+  .main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  h3 {
+    text-align: center;
+    padding: 10px;
+    border-radius: 4px;
+    font-family: arial;
+    font-weight: 900;
+  }
+  
+  .form {
+    padding: 30px 20px;
+    border: 1px solid #d8d8d8;
+    border-radius: 3px;
+    min-width: 360px;
+  }
+  
+  .form div {
+    margin-bottom: 10px;
+  }
+  
+  label {
+    font-weight: bold;
+    font-size: 13px;
+    font-family: arial;
+  }
+  
+  input {
+    width: 90%;
+    padding: 10px 14px;
+    border-radius: 3px;
+    border: 1px solid gray;
+  }
+  
+  button {
+    background: #ffd814;
+    width: 100%;
+    padding: 8px;
+    border: 1px solid gray;
+    border-radius: 10px;
+  }
+  /* styles.css */
+nav ul {
+  list-style: none;
+  padding: 0;
+}
+
+nav li {
+  display: inline;
+  margin-right: 10px;
+}
+
+nav a {
+  text-decoration: none;
+  color: #333;
+}
+
+/* Add more styles as needed */
+ul.nav {
+  margin:0;
+  padding:5px;
+  list-style:none;
+  height:50px; line-height:40px;
+  
+  background:#0d7963; /* you can change the backgorund color here. */
+  font-family:Arial, Helvetica, sans-serif;
+  font-size:20px;
+}
+ul.nav li {
+  border-right:1px solid #189b80; /* you can change the border color matching to your background color */
+  float:left;
+}
+ul.nav a {
+  display:block;
+  padding:0 28px;
+  color:#ccece6;
+  text-decoration:none;
+}
+ul.nav a:hover,
+ul.nav li.current a {
+  background:#086754;
+}

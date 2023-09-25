@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Movies{% endblock %}
+
+{% block body %}
+     <div class="container">
+        <h2 class="text-center mt- mb-3">Create New</h2>
+        <div class="card">
+            <div class="card-header">
+                <a class="btn btn-outline-info float-right" href="{{ path('app_movies_index') }}"> 
+                    View All Movies
+                </a>
+            </div>
+            <div class="card-body">
+
+    {{ include('movies/_form.html.twig') }}
+   </div>
+        </div>
+    </div>
+ <center>   <a href="{{ path('app_movies_index') }}">back to list</a></center>
+{% endblock %}

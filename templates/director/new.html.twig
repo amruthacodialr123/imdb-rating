@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Director{% endblock %}
+
+{% block body %}
+        <div class="container">
+        <h2 class="text-center mt-5 mb-3">Create New</h2>
+        <div class="card">
+            <div class="card-header">
+                <a class="btn btn-outline-info float-right" href="{{ path('app_director_index') }}"> 
+                    View All Directors
+                </a>
+            </div>
+            <div class="card-body">
+
+    {{ include('director/_form.html.twig') }}
+     </div>
+        </div>
+    </div>
+    <a href="{{ path('app_director_index') }}">back to list</a>
+{% endblock %}

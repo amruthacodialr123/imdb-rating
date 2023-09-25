@@ -1,0 +1,38 @@
+{% extends 'user/base.html.twig' %}
+
+{% block body %}
+  <div class="main">
+    <div id="img">
+      <img src="{{ asset('assets/images/im.png') }}" alt="Imdb_Movies">
+    </div><br>
+    <div class="form">
+      <h3>Create Account</h3>
+<form method="POST" >
+        <div>
+          {{ form_label(form.username) }}
+          {{ form_widget(form.username) }}
+        </div>
+        <div>
+          {{ form_label(form.email) }}
+          {{ form_widget(form.email) }}
+        </div>
+          
+       <div>
+  {{ form_label(form.password.first) }}
+  {{ form_widget(form.password.first) }}
+</div>
+<div>
+  {{ form_label(form.password.second) }}
+  {{ form_widget(form.password.second) }}
+</div>
+ <div>
+          {{ form_label(form.usertype) }}
+          {{ form_widget(form.usertype) }}
+        </div>
+        <button type="submit" class="button">Sign Up</button>
+        <hr>
+        Already have an account?<a href="{{ path('app_login') }}">Sign In </a></center>
+      </form>
+    </div>
+  </div>
+{% endblock %}

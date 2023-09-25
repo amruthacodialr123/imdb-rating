@@ -1,0 +1,17 @@
+{% extends 'user/base.html.twig' %}
+
+
+{% block body %}
+  <div class="main">
+    <div id="img">
+      <img src="{{ asset('assets/images/im.png') }}" alt="Imdb_Movies">
+    </div><br>
+        <div class="form">
+
+    <h1><center>Login</center></h1>
+<form method="POST" >
+
+    {{ form(form) }}
+</form><hr><center>New Customer?<a href="{{ path('register') }}">Register Now </a></center>
+
+{% endblock %}

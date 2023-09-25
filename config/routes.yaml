@@ -1,0 +1,50 @@
+# Define routes individually
+controllers:
+    resource:
+        path: ../src/Controller/
+        namespace: App\Controller
+    type: attribute
+    
+home:
+    path: /home
+    controller: App\Controller\HomeController::index
+
+category_index:
+    path: /category
+    controller: App\Controller\CategoryController::index
+
+movie_index:
+    path: /movies
+    controller: App\Controller\MoviesController::index
+
+director_index:
+    path: /director
+    controller: App\Controller\DirectorController::index
+crew_index:
+    path: /crew
+    controller: App\Controller\CrewController::index
+rating_index:
+    path: /rating
+    controller: App\Controller\RatingController::index
+logout:
+    path: /logout
+    controller: App\Controller\LoginController::logout
+
+admin_login:
+    path: /home  # Define the URL path for the admin login route
+    controller: App\Controller\LoginController::admin_login  # Replace with your actual controller and method
+    methods: [GET]
+
+register:
+    path: /register
+    controller: App\Controller\SignUpController::register
+    methods: ['GET', 'POST']
+
+user_home:
+    path: /userhome
+    controller: App\Controller\MoviesController::userHome
+
+app_movie_details:
+    path: /userhome/{id}
+    controller: App\Controller\MoviesController::details
+    methods: ['GET']

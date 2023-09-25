@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Crew index{% endblock %}
+
+{% block body %}
+<div class="container">
+        <h2 class="text-center mt-5 mb-3">Crew Listing</h2>
+        <div class="card">
+            <div class="card-header">
+                <a class="btn btn-outline-primary" href="{{ path('app_crew_new') }}"> 
+                    Create New  
+                </a>
+            </div></div>
+            <div class="card-body">
+   <table class="table table-bordered">
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Age</th>
+                <th>About</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for crew in crews %}
+            <tr>
+                <td>{{ crew.id }}</td>
+                <td>{{ crew.name }}</td>
+                <td>{{ crew.age }}</td>
+                <td>{{ crew.about }}</td>
+                <td>
+                    <a class="btn btn-outline-info" href="{{ path('app_crew_show', {'id': crew.id}) }}">show</a>
+                    <a class="btn btn-outline-success" href="{{ path('app_crew_edit', {'id': crew.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_crew_new') }}">Create new</a>
+{% endblock %}

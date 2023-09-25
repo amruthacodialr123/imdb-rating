@@ -1,0 +1,32 @@
+
+<!-- nav_menu.html.twig -->
+<link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
+
+
+<nav>
+
+    <ul class="nav">
+        <li><a href="#">Home</a></li>
+        <li><a href="{{ path('logout') }}">Logout</a></li>
+
+    </ul>
+</nav>
+<style>img {
+    width: 32%;
+    height: 40%;}</style>
+
+{% block body %}
+ <br><br><br>
+    <div class="movie-list">
+        {% for movie in movies %}
+            <div class="movie">
+            
+<img src="{{ asset('assets/images/' ~ movie.image) }}" alt="{{ movie.title }}" width="200" height="200">
+                   <h2><h2><a href="{{ path('app_movie_details', {'id': movie.id}) }}">{{ movie.title }}</a></h2>
+
+</h2>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}
+  

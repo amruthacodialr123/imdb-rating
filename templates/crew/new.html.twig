@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Crew{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <h2 class="text-center mt-5 mb-3">Create New</h2>
+        <div class="card">
+            <div class="card-header">
+                <a class="btn btn-outline-info float-right" href="{{ path('app_crew_index') }}"> 
+                    View All Crew
+                </a>
+            </div>
+            <div class="card-body">
+
+    {{ include('crew/_form.html.twig') }}
+
+    <a href="{{ path('app_crew_index') }}">back to list</a>
+      </div>
+        </div>
+    </div>
+{% endblock %}

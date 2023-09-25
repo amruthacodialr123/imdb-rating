@@ -1,0 +1,55 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Director Data{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <h2 class="text-center mt-5 mb-3">Director Listing</h2>
+        <div class="card">
+            <div class="card-header">
+                <a class="btn btn-outline-primary" href="{{ path('app_director_new') }}"> 
+                    Create New Diector 
+                </a>
+            </div>
+                        <div class="card-body">
+   <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Gender</th>
+                <th>Description</th>
+                <th>Image</th>
+                <th width="240px">actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for director in directors %}
+            <tr>
+                <td>{{ director.id }}</td>
+                <td>{{ director.name }}</td>
+                <td>{{ director.gender }}</td>
+                <td>{{ director.description }}</td>
+                <td>
+                    {% if director.image %}
+                        <img src="{{ asset('assets/images/' ~ director.image) }}" alt="{{ director.name }}" width="100">
+                    {% else %}
+                        No Image
+                    {% endif %}       </td>  
+                <td>
+                    <a class="btn btn-outline-info" href="{{ path('app_director_show', {'id': director.id}) }}">show</a>
+                    <a class="btn btn-outline-success" href="{{ path('app_director_edit', {'id': director.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+ </table>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

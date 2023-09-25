@@ -1,0 +1,88 @@
+
+<!-- nav_menu.html.twig -->
+<link rel="stylesheet" href="{{ asset('assets/css/main.css') }}">
+
+
+<nav>
+
+    <ul class="nav">
+        <li><a href="#">Home</a></li>
+        <li><a href="{{ path('logout') }}">Logout</a></li>
+
+    </ul>
+</nav>
+
+{% block body %}
+<style>img {
+        width: 50%;
+        height: 50%;
+    }</style>
+<center>
+<br></br>
+    <div class="form">
+
+<img src="{{ asset('assets/images/' ~ movie.image) }}" alt="{{ movie.title }}">
+<ul>
+    <strong>Title:</strong> {{ movie.title }}</li><br>
+    <strong></strong> {{ movie.category }}/Drama</li>
+      <strong>Director:</strong> {{ movie.director }}</li>
+    <strong>Budget</strong> {{ movie.budget }}</li>
+        <strong></strong> {{ movie.description }}</li>
+
+</ul>
+
+<!-- Rating and Comment Form -->
+<form method="post" action="{{ path('app_rating_new') }}">
+    <!-- Hidden Field for Movie Title -->
+    
+    <label for="comments">Comments:</label><br>
+    <textarea id="comments" name="comments" rows="10" cols="70"></textarea>
+    <br>
+    <label for="rating">Rate:</label>
+    {% for i in 1..6 %}
+        <label class="horizontal-radio" for="rating{{ i }}">
+            <input type="radio" id="rating{{ i }}" name="rating" value="{{ i }}">
+            {{ i }}
+        </label>
+    {% endfor %}
+    <br><button type="submit" class="button" value="Submit Review">Give Rate</button>
+</form>
+
+<!-- Popup to show rating -->
+<div id="popup" class="popup">
+    <div class="popup-content">
+        <span id="rating-display"></span>
+    </div>
+</div>
+
+<!-- JavaScript to display the popup after form submission -->
+<script>
+    const form = document.querySelector('form');
+    const popup = document.getElementById('popup');
+    const ratingDisplay = document.getElementById('rating-display');
+    const okButton = document.getElementById('ok-button');
+
+    form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        const formData = new FormData(form);
+        // Send the form data to your server for processing (you may need an AJAX request here).
+
+        // For demonstration purposes, let's assume you receive a JSON response from the server.
+        const response = {
+            rating: formData.get('rating'),
+        };
+
+        // Display the rating in the popup
+        ratingDisplay.textContent = `Your Rating: ${response.rating}`;
+        
+        // Show the popup
+        popup.style.display = 'block';
+    });
+
+    // Close the popup when the OK button is clicked
+    okButton.addEventListener('click', function () {
+        popup.style.display = 'none';
+    });
+</script>
+
+{% endblock %}

@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Rating index{% endblock %}
+
+{% block body %}
+<div class="container">
+        <h2 class="text-center mt-5 mb-3">Rating Listing</h2>
+        <div class="card">
+            <div class="card-header">
+            </div></div>
+            <div class="card-body">
+   <table class="table table-bordered">
+            <tr>
+                <th>Id</th>
+                <th>User</th>
+                <th>Movie</th>
+                 <th>Rating</th>
+                <th>Comments</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for rating in ratings %}
+            <tr>
+                <td>{{ rating.id }}</td>
+                <td>{{ rating.user }}</td>
+                <td>{{ rating.movie }}</td>
+                <td>{{ rating.rating }}</td>
+                <td>{{ rating.comments }}</td>
+                <td>
+                    <a  class="btn btn-outline-info" href="{{ path('app_rating_show', {'id': rating.id}) }}">show</a>
+                    <a class="btn btn-outline-success" href="{{ path('app_rating_edit', {'id': rating.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

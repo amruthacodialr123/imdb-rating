@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Crew{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <h2 class="text-center mt-5 mb-3">Show Crew</h2>
+        <div class="card">
+            <div class="card-header">
+                <a class="btn btn-outline-info float-right" href="{{ path('app_crew_index') }}"> 
+                    View All Crew
+                </a>
+            </div>
+            <div class="card-body">
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ crew.id }}</td>
+            </tr>
+            <tr>
+                <th>Name</th>
+                <td>{{ crew.name }}</td>
+            </tr>
+            <tr>
+                <th>Age</th>
+                <td>{{ crew.age }}</td>
+            </tr>
+            <tr>
+                <th>About</th>
+                <td>{{ crew.about }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_crew_index') }}">back to list</a>
+
+    <a href="{{ path('app_crew_edit', {'id': crew.id}) }}">edit</a>
+
+    {{ include('crew/_delete_form.html.twig') }}
+          </div>
+        </div>
+    </div>
+{% endblock %}

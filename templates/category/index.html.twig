@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+
+{% block body %}
+   <div class="container">
+        <h2 class="text-center mt-5 mb-3">Categories Listing</h2>
+        <div class="card">
+            <div class="card-header">
+                <a class="btn btn-outline-primary" href="{{ path('app_category_new') }}"> 
+                    Create New  
+                </a>
+            </div></div>
+            <div class="card-body">
+   <table class="table table-bordered">
+                    <tr>
+                <th>Id</th>
+                <th>Name</th>
+                 <th width="240px">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for category in categories %}
+            <tr>
+                <td>{{ category.id }}</td>
+                <td>{{ category.name }}</td>
+                <td>
+                    <a class="btn btn-outline-info" href="{{ path('app_category_show', {'id': category.id}) }}">Show</a>
+                    <a class="btn btn-outline-success" href="{{ path('app_category_edit', {'id': category.id}) }}">Edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3">No records found!!!</td>
+            </tr>
+        {% endfor %}
+   </table>
+            </div>
+        </div>
+    </div>
+{% endblock %}
